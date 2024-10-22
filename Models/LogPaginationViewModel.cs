@@ -1,9 +1,9 @@
 ﻿
 namespace mbadmin.Models
 {
-    public class LogPaginationViewModel
+    public class LogPaginationViewModel<T>
     {
-        public IEnumerable<MailLog> Logs { get; set; }
+        public IEnumerable<T> Logs { get; set; }
         public int CurrentPage { get; set; }
         public int TotalPages { get; set; }
 

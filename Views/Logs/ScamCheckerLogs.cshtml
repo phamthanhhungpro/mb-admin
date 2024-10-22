@@ -1,7 +1,7 @@
-﻿@model LogPaginationViewModel
+﻿@model LogPaginationViewModel<ScamCheckerLog>
 
 <div class="container mt-4">
-    <h2 class="text-center">Danh sách Log</h2>
+    <h2 class="text-center">Danh sách Log ứng dụng http://canhbaoscam.com</h2>
 
     <table class="table table-striped table-hover">
         <thead class="table-dark">
@@ -18,10 +18,10 @@
             {
                 <tr>
                     <td>@log.Id</td>
-                    <td>@log.FromIp</td>
+                    <td>@log.Ip</td>
                     <td>@log.Action</td>
                     <td>
-                        @log.Value
+                        @log.Data
                     </td>
                     <td>@log.Time.ToString("dd/MM/yyyy hh:mm")</td>
                 </tr>

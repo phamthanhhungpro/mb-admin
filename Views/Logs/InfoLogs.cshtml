@@ -1,7 +1,7 @@
-﻿@model LogPaginationViewModel
+﻿@model LogPaginationViewModel<InfoLog>
 
 <div class="container mt-4">
-    <h2 class="text-center">Danh sách Log</h2>
+    <h2 class="text-center">Danh sách Log ứng dụng geninfo.net</h2>
 
     <table class="table table-striped table-hover">
         <thead class="table-dark">
@@ -9,7 +9,7 @@
                 <th>Id</th>
                 <th>Từ IP</th>
                 <th>Hành động</th>
-                <th>Nội dung</th>
+@*                 <th>Nội dung</th> *@
                 <th>Time</th>
             </tr>
         </thead>
@@ -18,11 +18,11 @@
             {
                 <tr>
                     <td>@log.Id</td>
-                    <td>@log.FromIp</td>
+                    <td>@log.Ip</td>
                     <td>@log.Action</td>
-                    <td>
-                        @log.Value
-                    </td>
+@*                     <td>
+                        @log.Data
+                    </td> *@
                     <td>@log.Time.ToString("dd/MM/yyyy hh:mm")</td>
                 </tr>
             }

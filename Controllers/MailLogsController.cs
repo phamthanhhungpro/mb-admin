@@ -25,7 +25,7 @@ namespace mbadmin.Controllers
                                      .Take(PageSize)
                                      .ToListAsync();
 
-            var viewModel = new LogPaginationViewModel
+            var viewModel = new LogPaginationViewModel<MailLog>
             {
                 Logs = logs,
                 CurrentPage = page,
@@ -38,14 +38,14 @@ namespace mbadmin.Controllers
         // InfoLogs
         public async Task<IActionResult> InfoLogs(int page = 1)
         {
-            int totalLogs = await _context.MailLog.CountAsync();
-            var logs = await _context.MailLog
+            int totalLogs = await _context.InfoLog.CountAsync();
+            var logs = await _context.InfoLog
                                      .OrderByDescending(l => l.Time)
                                      .Skip((page - 1) * PageSize)
                                      .Take(PageSize)
                                      .ToListAsync();
 
-            var viewModel = new LogPaginationViewModel
+            var viewModel = new LogPaginationViewModel<InfoLog>
             {
                 Logs = logs,
                 CurrentPage = page,
@@ -53,19 +53,20 @@ namespace mbadmin.Controllers
             };
 
             return View(viewModel);
+
         }
 
         // VideodlLogs
         public async Task<IActionResult> VideodlLogs(int page = 1)
         {
-            int totalLogs = await _context.MailLog.CountAsync();
-            var logs = await _context.MailLog
+            int totalLogs = await _context.VideodlLog.CountAsync();
+            var logs = await _context.VideodlLog
                                      .OrderByDescending(l => l.Time)
                                      .Skip((page - 1) * PageSize)
                                      .Take(PageSize)
                                      .ToListAsync();
 
-            var viewModel = new LogPaginationViewModel
+            var viewModel = new LogPaginationViewModel<VideodlLog>
             {
                 Logs = logs,
                 CurrentPage = page,
@@ -78,14 +79,14 @@ namespace mbadmin.Controllers
         // ScamCheckerLogs
         public async Task<IActionResult> ScamCheckerLogs(int page = 1)
         {
-            int totalLogs = await _context.MailLog.CountAsync();
-            var logs = await _context.MailLog
+            int totalLogs = await _context.ScamCheckerLog.CountAsync();
+            var logs = await _context.ScamCheckerLog
                                      .OrderByDescending(l => l.Time)
                                      .Skip((page - 1) * PageSize)
                                      .Take(PageSize)
                                      .ToListAsync();
 
-            var viewModel = new LogPaginationViewModel
+            var viewModel = new LogPaginationViewModel<ScamCheckerLog>
             {
                 Logs = logs,
                 CurrentPage = page,

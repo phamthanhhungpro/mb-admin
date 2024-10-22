@@ -9,6 +9,9 @@ namespace mbadmin.Data
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
         public DbSet<MailLog> MailLog { get; set; }
+        public DbSet<InfoLog> InfoLog { get; set; }
+        public DbSet<ScamCheckerLog> ScamCheckerLog { get; set; }
+        public DbSet<VideodlLog> VideodlLog { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
