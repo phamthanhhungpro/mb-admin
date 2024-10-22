@@ -1,7 +1,7 @@
 ﻿@model LogPaginationViewModel
 
 <div class="container mt-4">
-    <h2 class="text-center">Log Entries</h2>
+    <h2 class="text-center">Danh sách Log</h2>
 
     <table class="table table-striped table-hover">
         <thead class="table-dark">
@@ -36,7 +36,7 @@
             @if (Model.CurrentPage > 1)
             {
                 <li class="page-item">
-                    <a class="page-link" href="@Url.Action("Index", new { page = 1 })" aria-label="First">
+                    <a class="page-link" href="@Url.Action("ScamCheckerLogs", new { page = 1 })" aria-label="First">
                         <span aria-hidden="true">&laquo;&laquo;</span> <!-- Double left arrow for first page -->
                     </a>
                 </li>
@@ -52,7 +52,7 @@
             @if (Model.HasPreviousPage)
             {
                 <li class="page-item">
-                    <a class="page-link" href="@Url.Action("Index", new { page = Model.CurrentPage - 1 })" aria-label="Previous">
+                    <a class="page-link" href="@Url.Action("ScamCheckerLogs", new { page = Model.CurrentPage - 1 })" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span> <!-- Single left arrow for previous page -->
                     </a>
                 </li>
@@ -68,7 +68,7 @@
             @for (int i = Math.Max(1, Model.CurrentPage - 5); i <= Math.Min(Model.TotalPages, Model.CurrentPage + 5); i++)
             {
                 <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                    <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                    <a class="page-link" href="@Url.Action("ScamCheckerLogs", new { page = i })">@i</a>
                 </li>
             }
 
@@ -76,7 +76,7 @@
             @if (Model.HasNextPage)
             {
                 <li class="page-item">
-                    <a class="page-link" href="@Url.Action("Index", new { page = Model.CurrentPage + 1 })" aria-label="Next">
+                    <a class="page-link" href="@Url.Action("ScamCheckerLogs", new { page = Model.CurrentPage + 1 })" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span> <!-- Single right arrow for next page -->
                     </a>
                 </li>
@@ -92,7 +92,7 @@
             @if (Model.CurrentPage < Model.TotalPages)
             {
                 <li class="page-item">
-                    <a class="page-link" href="@Url.Action("Index", new { page = Model.TotalPages })" aria-label="Last">
+                    <a class="page-link" href="@Url.Action("ScamCheckerLogs", new { page = Model.TotalPages })" aria-label="Last">
                         <span aria-hidden="true">&raquo;&raquo;</span> <!-- Double right arrow for last page -->
                     </a>
                 </li>

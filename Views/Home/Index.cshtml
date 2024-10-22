@@ -2,7 +2,51 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Hero Section -->
+<section class="bg-dark text-light py-5">
+    <div class="container text-center">
+        <h1 class="display-3 mb-3">Welcome to LogViewerApp</h1>
+        <p class="lead mb-4">Easily track and monitor logs from multiple applications with our intuitive interface.</p>
+        <a href="/Logs/MailLogs" class="btn btn-primary btn-lg">View Temp Mail Logs</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="mb-5">Key Features</h2>
+        <div class="row g-4">
+            <!-- Feature 1 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Temp Mail Logs</h5>
+                        <p class="card-text">Xem tất cả log từ ứng dụng TempMail.</p>
+                        <a href="/Logs/MailLogs" class="btn btn-outline-primary">MailLogs</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Temp Info Log</h5>
+                        <p class="card-text">Xem tất cả log từ ứng dụng TempInfo</p>
+                        <a href="/Logs/InfoLogs" class="btn btn-outline-primary">InfoLogs</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Video downloader logs</h5>
+                        <p class="card-text">Xem tất cả log từ ứng dụng video downloader.</p>
+                        <a href="/Logs/VideodlLogs" class="btn btn-outline-primary">VideodlLogs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

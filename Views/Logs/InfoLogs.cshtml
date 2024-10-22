@@ -1,0 +1,108 @@
+﻿@model LogPaginationViewModel
+
+<div class="container mt-4">
+    <h2 class="text-center">Danh sách Log</h2>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Từ IP</th>
+                <th>Hành động</th>
+                <th>Nội dung</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var log in Model.Logs)
+            {
+                <tr>
+                    <td>@log.Id</td>
+                    <td>@log.FromIp</td>
+                    <td>@log.Action</td>
+                    <td>
+                        @log.Value
+                    </td>
+                    <td>@log.Time.ToString("dd/MM/yyyy hh:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <nav>
+        <ul class="pagination justify-content-center">
+            <!-- First Page Link -->
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("InfoLogs", new { page = 1 })" aria-label="First">
+                        <span aria-hidden="true">&laquo;&laquo;</span> <!-- Double left arrow for first page -->
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">&laquo;&laquo;</span>
+                </li>
+            }
+
+            <!-- Previous Page Link -->
+            @if (Model.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("InfoLogs", new { page = Model.CurrentPage - 1 })" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span> <!-- Single left arrow for previous page -->
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">&laquo;</span>
+                </li>
+            }
+
+            <!-- Page Numbers -->
+            @for (int i = Math.Max(1, Model.CurrentPage - 5); i <= Math.Min(Model.TotalPages, Model.CurrentPage + 5); i++)
+            {
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("InfoLogs", new { page = i })">@i</a>
+                </li>
+            }
+
+            <!-- Next Page Link -->
+            @if (Model.HasNextPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("InfoLogs", new { page = Model.CurrentPage + 1 })" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span> <!-- Single right arrow for next page -->
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">&raquo;</span>
+                </li>
+            }
+
+            <!-- Last Page Link -->
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("InfoLogs", new { page = Model.TotalPages })" aria-label="Last">
+                        <span aria-hidden="true">&raquo;&raquo;</span> <!-- Double right arrow for last page -->
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">&raquo;&raquo;</span>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

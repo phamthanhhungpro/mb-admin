@@ -46,3 +46,4 @@ yarn-error.log*
 # Secrets
 appsettings.Development.json
 appsettings.Production.json
+/.vs
